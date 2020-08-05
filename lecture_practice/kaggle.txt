@@ -1,0 +1,66 @@
+Step 1:Get you Kaggle API Token
+
+    Go to Your Account and click on Create New API Token.
+    A file named kaggle.json will get downloaded containing your username and token key
+
+Image for post
+Image for post
+Step 2: Uploading kaggle.json into Google Drive
+
+    Create a folder named Kaggle where we will be storing our Kaggle datasets
+    Upload your kaggle.json file into Kaggle folder
+
+Image for post
+Image for post
+Refer this image for the final result
+Step 3: Create a new Colab notebook
+Step 4: Mount the drive to colab notebook
+
+    Use the below code to mount your google drive
+
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+    Get your authorization code using the URL prompted and provide it in the empty box as shown in figure
+
+Image for post
+Image for post
+Step 4: Run the following code to provide the config path to kaggle.json
+
+import os
+os.environ['KAGGLE_CONFIG_DIR'] = "/content/gdrive/My Drive/Kaggle"# /content/gdrive/My Drive/Kaggle is the path where kaggle.json is present in the Google Drive
+
+Step 5: Change your present working directory
+
+#changing the working directory
+%cd /content/gdrive/My Drive/Kaggle#Check the present working directory using pwd command
+
+Step 6: Download the kaggle dataset
+
+    Go to kaggle and copy the API Command to download the dataset
+
+Image for post
+Image for post
+
+    Your API Command will look like “kaggle datasets download -d datasnaek/youtube-new”
+    Run the following code using ! :
+
+!kaggle datasets download -d datasnaek/youtube-new
+
+    You can check the content in your directory using ls command as follows:
+
+Image for post
+Image for post
+Step 7: Unzip your data and remove the zip file
+
+    Use the unzip and rm command
+
+#unzipping the zip files and deleting the zip files
+!unzip \*.zip  && rm *.zip
+
+Image for post
+Image for post
+
+That’s all folks …Now you can use the extracted .csv files with ease directly from your Google Drive.
+
+Happy Learning 😃….
